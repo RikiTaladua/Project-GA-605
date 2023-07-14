@@ -1,11 +1,11 @@
 <%- include('../partials/header') %>
 <section id="pilot-details">
   <h1><%=pilot.name%></h1>
-  <p id="pilot-affiliation"><%= pilot.affiliation%></p>
-  <% pilotsPodcasts.forEach(function(p) { %>
+  <p id="pilot-plane"><%= pilot.plane%></p>
+  <% pilotsFlights.forEach(function(p) { %>
 
 
-  <p><a class="grey-link" href="/podcasts/<%=p._id%>"><%=p.pilot%></a></p>
+  <p><a class="grey-link" href="/flights/<%=p._id%>"><%=p.pilot%></a></p>
   <%})%>
   <div id="pilot-description">
     <p><%=pilot.description%></p>

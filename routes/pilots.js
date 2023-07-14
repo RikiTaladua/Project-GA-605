@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const pilotsCtrl = require("../controllers/pilots");
+const pilotsCtrl =  require("../controllers/pilot");
 
 //Pilots routes are all prepended with "/pilots"
 router.get("/pilots/new", pilotsCtrl.new);

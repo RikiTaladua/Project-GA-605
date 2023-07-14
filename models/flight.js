@@ -6,7 +6,7 @@ const Schema = mongoose.Schema;
 
 //Flight = manycomments // Comment belongs = flight.
 //comment Schema in flighttSchema
-const reviewSchema = new Schema(
+const commentSchema = new Schema(
   {
     content: { type: String, required: true },
     rating: { type: Number, min: 1, max: 5 },
