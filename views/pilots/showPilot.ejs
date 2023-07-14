@@ -1,0 +1,23 @@
+<%- include('../partials/header') %>
+<section id="pilot-details">
+  <h1><%=pilot.name%></h1>
+  <p id="pilot-affiliation"><%= pilot.affiliation%></p>
+  <% pilotsPodcasts.forEach(function(p) { %>
+
+
+  <p><a class="grey-link" href="/podcasts/<%=p._id%>"><%=p.pilot%></a></p>
+  <%})%>
+  <div id="pilot-description">
+    <p><%=pilot.description%></p>
+  </div>
+
+
+  <% if (user) { %>
+  <a class="grey-link" href="/pilots/<%=pilot._id%>/edit">Edit pilot Details</a>
+  <form action="/pilots/<%= pilot._id %>?_method=DELETE" method="POST">
+    <button id="delete-pilot" type="submit">Delete Pilot</button>
+  </form>
+  <% } %>
+</section>
+
+<%- include('../partials/footer') %>

@@ -1,0 +1,50 @@
+<%- include('../partials/header') %>
+<div class="new-flight">
+  <form id="new-flight-form" action="/flights" method="POST">
+    <div class="flight-pilot">
+      <label>Pilot:</label>
+      <input type="text" name="pilot" />
+    </div>
+    <br />
+    <div class="flight-hosts"></div>
+    <br />
+    <div class="flight-description-form">
+      <label>Description:</label>
+      <textarea name="description"></textarea>
+    </div>
+    <br />
+    <div class="flight-plane">
+      <label>Plane:</label>
+      <select name="plane">
+        <option value="Propeller (single-engine)" selected>Propeller (single-engine)</option>
+        <option value="Propeller (multi-engine)">Propeller (multi-engine)</option>
+        <option value="High Performance(jet)">High Performance(jet)</option>
+        <option value="Rotocraft">Rotocraft</option>
+        <option value="Other">Other</option>
+      </select>
+    </div>
+    <br />
+    <div class = "flight-from">
+        <label>From:</label>
+        <input value = "<%=flight.from%>" type="text" name="from" />
+        </div>
+        <br />
+      <div class = "flight-to">
+        <label>To:</label>
+        <input value = "<%=flight.to%>"name="to" type="text" />
+        </div>
+        <br />
+      <div class = "dof">
+        <label>From:</label>
+        <input value = "<%=flight.dof%>" type="text" name="dof" />
+        </div>
+        <br />
+      <div class="flight-logged">
+        <label>Is this flight logged?</label>
+        <input <% if(flight.logged === true) {%> checked <%}%>name="logged" type="checkbox" />
+      </div>
+        <br />
+    <input class="button" type="submit" value="Add Flight" />
+  </form>
+</div>
+<%- include('../partials/footer') %>

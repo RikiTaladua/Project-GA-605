@@ -1,0 +1,32 @@
+<%- include('../partials/header') %>
+<div class="new-flight" id="new-pilot">
+  <form
+    id="new-pilot-form"
+    action="/pilots/<%=pilot._id%>?_method=PUT"
+    method="POST"
+  >
+    <div class="pilot-name">
+      <label>Name:</label>
+      <input value="<%=pilot.name%>" type="text" name="name" />
+    </div>
+    <br />
+
+
+    <div class="pilot-logged">
+      <label>logged:</label>
+      <input value="<%=pilot.logged%>" type="text" name="logged" />
+    </div>
+    <br />
+
+
+    <div class="pilot-description-form">
+      <label>Description:</label>
+      <textarea name="description"><%=pilot.description%></textarea>
+    </div>
+    <br />
+
+
+    <input class="button" type="submit" value="Edit Pilot" />
+  </form>
+</div>
+<%- include('../partials/footer') %>

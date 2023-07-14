@@ -1,0 +1,52 @@
+<%- include('../partials/header') %>
+<div class = "new-flight">
+<form id="edit-flight-form" action="/flights/<%=flight._id%>?_method=PUT" method="POST">
+  <div class = "flight-pilot">
+  <label>Pilot:</label>
+  <input value = "<%=flight.pilot%>" type="text" name="pilot" />
+  </div>
+  <br />
+<div class = "flight-description-form">
+  <label>Description:</label>
+  <textarea name="description"><%=flight.description%></textarea>
+  </div>
+  <br />
+<div class = "plane-type">
+  <label>type:</label>
+  <select name="type">
+    <option <% if(plane.type === "Propeller (single-engine)") {%> selected <%}%> value="Propeller (single-engine)">Propeller (single-engine)</option>
+    <option <% if(plane.type === "Propeller (multi-engine)") {%> selected <%}%> value="Propeller (multi-engine)">Propeller (multi-engine)</option>
+    <option <% if(plane.type === "High Performance(jet)") {%> selected <%}%> value="High Performance(jet)">High Performance(jet)</option>
+    <option <% if(plane.type === "Rotocraft") {%> selected <%}%> value="Rotocraft">Rotocraft</option>
+    <option <% if(plane.type === "Other") {%> selected <%}%> value="Other">Other</option>
+  </select>
+  </div>
+  <br />
+<div class = "flight-from">
+  <label>From:</label>
+  <input value = "<%=flight.from%>" type="text" name="from" />
+  </div>
+  <br />
+<div class = "flight-to">
+  <label>To:</label>
+  <input value = "<%=flight.to%>"name="to" type="text" />
+  </div>
+  <br />
+<div class = "dof">
+  <label>From:</label>
+  <input value = "<%=flight.dof%>" type="text" name="dof" />
+  </div>
+  <br />
+<div class="flight-logged">
+  <label>Is this flight logged?</label>
+  <input <% if(flight.logged === true) {%> checked <%}%>name="logged" type="checkbox" />
+</div>
+  <br />
+  <input class = "button" type="submit" value="Update This flight" />
+</form>
+<br>
+<form action="/flights/<%= flight._id %>?_method=DELETE" method="POST">
+    <button type="submit">Delete This flight</button>
+    </form>
+</div>
+<%- include('../partials/footer') %>

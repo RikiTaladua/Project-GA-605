@@ -1,0 +1,28 @@
+<%- include('../partials/header') %>
+<div class="new-flight" id="new-pilot">
+  <form id="new-pilot-form" action="/pilots" method="POST">
+    <div class="pilot-name">
+      <label>Name:</label>
+      <input autocomplete="off" type="text" name="name" />
+    </div>
+    <br />
+
+
+    <div class="pilot-logged">
+      <label>logged:</label>
+      <input autocomplete="off" type="text" name="logged" />
+    </div>
+    <br />
+
+
+    <div class="pilot-description-form">
+      <label>Description:</label>
+      <textarea name="description"></textarea>
+    </div>
+    <br />
+
+
+    <input class="button" type="submit" value="Add a Pilot" />
+  </form>
+</div>
+<%- include('../partials/footer') %>

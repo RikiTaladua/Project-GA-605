@@ -1,0 +1,142 @@
+<%- include('../partials/header') %>
+<div class="show">
+  <section class="flights">
+    <h1><%=flight.pilot%></h1>
+    <div id="listeners-airing">
+      <%if(user) {%> <% if (flight.usersFollowing.includes(user._id)) { %>
+      <p>You are following <%=flight.pilot%>.</p>
+      <% } else { %>
+      <form
+        action="/flights/<%= flight._id %>/follow?_method=PUT"
+        method="POST"
+      >
+        <button type="submit">Follow</button>
+      </form>
+      <p>Follow to get updates on this flight!</p>
+      <%}%> <%} else {%>
+      <p>Login to follow the flight!</p>
+      <%}%>
+
+      <p>
+        Making New Episodes? <% if (flight.newEpisodes) {%>
+        <img
+          id="checkmark"
+          src="https://e7.pngegg.com/pngimages/325/286/png-clipart-check-mark-symbol-black-check-mark-angle-text-thumbnail.png"
+        />
+        Yes <%} else {%>
+        <img
+          id="xmark"
+          src="https://img1.pnghut.com/6/4/3/CfmpYijLX6/black-and-white-icon-design-check-mark-area-cross.jpg"
+        />
+        No <%}%>
+      </p>
+    </div>
+
+    <div class="flight-details">
+      <p id="flight-description"><%=flight.description%></p>
+      <table id="details-table">
+        <tr>
+          <th>
+            Pilots <% if (user) { %>
+            <form
+              id="add-pilot"
+              action="/flights/<%= flight._id %>/pilots"
+              method="POST"
+            >
+              <select name="pilotId">
+                <% pilots.forEach(h => { %>
+                <option value="<%= h._id %>"><%= h.name %></option>
+                <% }) %>
+              </select>
+              <button type="submit">Add Pilot</button>
+            </form>
+            <% } %>
+          </th>
+          <td>
+            <%flight.pilots.forEach(function(h) { %>
+            <div id="pilot">
+              <a class="grey-link" href="/pilots/<%=h._id%>"><%=h.name%></a>
+              <% if (user) { %>
+              <form
+                action="/flights/<%= flight._id %>/pilots/<%=h._id%>?_method=DELETE"
+                method="POST"
+              >
+                <button class="delete-button" type="submit">X</button>
+              </form>
+              <% } %>
+            </div>
+            <%})%>
+          </td>
+        </tr>
+        <tr>
+          <th>Plane</th>
+          <td><%=flight.plane%></td>
+        </tr>
+        <tr>
+          <th>From</th>
+          <td><%=flight.from%></td>
+        </tr>
+        <tr>
+            <th>To</th>
+            <td><%=flight.to%></td>
+          </tr>
+        <tr>
+          <th>Date Of Flight</th>
+          <td><%=flight.dateOfFlight%></td>
+        </tr>
+      </table>
+      <% if (user) { %>
+      <a class="grey-link" href="/flights/<%=flight._id%>/edit"
+        >Update Details</a
+      >
+      <% } %>
+    </div>
+  </section>
+  <section class="comments">
+    <h1>Comments</h1>
+    <% let sum = 0; %> <%flight.comments.forEach(function(r) {%> <% return sum =
+    (sum + r.rating)%> <% }) %> <% if (Math.floor(sum/flight.comments.length) >
+    1) { %>
+    <p><%=Math.floor(sum/flight.comments.length)%> / 5 stars</p>
+    <% } else { %>
+    <p>No comments Yet!</p>
+    <%}%> <%if (user) { %>
+
+    <p>
+      <a class="grey-link" href="/flights/<%=flight._id%>/comments/new">
+        Leave a comment!</a
+      >
+    </p>
+    <%} else {%>
+    <p>Login to Leave a comment!</p>
+    <%}%>
+    <table id="comments-table">
+      <thead>
+        <th>User</th>
+        <th>Comment</th>
+        <th>Rating</th>
+        <th>Want to fly together?</th>
+        <th></th>
+      </thead>
+      <tbody>
+        <%comments.forEach(function(r) { %>
+        <tr>
+          <td><%=r.userName%></td>
+          <td><%=r.content%></td>
+          <td><%=r.rating%></td>
+          <td><%if (r.flyTogether) {%> Yes <% } else {%> No <%}%></td>
+          <td>
+            <% if (user && user._id.equals(r.userId)) { %>
+            <form action="/comments/<%= r._id %>?_method=DELETE" method="POST">
+              <button class="delete-button" type="submit">X</button>
+            </form>
+            <a class="grey-link" href="/comments/<%=r._id%>/edit">Edit</a>
+            <%}%>
+          </td>
+        </tr>
+        <%})%>
+      </tbody>
+    </table>
+  </section>
+</div>
+<%- include('../partials/footer') %>

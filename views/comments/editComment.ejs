@@ -1,0 +1,72 @@
+<%- include('../partials/header') %>
+<div class = "show">
+<section class="flights">
+  <h1><%=flight.pilot%></h1>
+  <div id="listeners-airing">
+    <p>
+      Logged? <% if (flight.logged) {%>
+      <img id="checkmark"
+        src="https://e7.pngegg.com/pngimages/325/286/png-clipart-check-mark-symbol-black-check-mark-angle-text-thumbnail.png"
+      />
+      Yes <%} else {%>
+      <img id="xmark"
+        src="https://img1.pnghut.com/6/4/3/CfmpYijLX6/black-and-white-icon-design-check-mark-area-cross.jpg"
+      />
+      No <%}%>
+    </p>
+  </div>
+
+  <div class="flight-details">
+    <p id="flight-description"><%=flight.description%></p>
+    <table id="details-table">
+      <tr>
+        <th>Pilots</th>
+        <td><%flight.pilots.forEach(function(h) { %>
+          <p><a class = "grey-link" href="/pilots/<%=h._id%>"><%=h.name%></a></p>
+          <%})%></td>
+      </tr>
+      <tr>
+        <th>Plane</th>
+        <td><%=flight.plane%></td>
+      </tr>
+      <tr>
+        <th>From</th>
+        <td><%=flight.From%></td>
+      </tr>
+      <tr>
+        <th>To</th>
+        <td><%=flight.to%></td>
+      </tr>
+      <tr>
+        <th>Date Of Flight</th>
+        <td><%=flight.dateOfFlight%></td>
+      </tr>
+    </table>
+  </div>
+</section>
+<section class = "comments">
+  <h1>Update Your Comment of <%=flight.pilot%></h1>
+  <form action="/comments/<%=comment._id%>?_method=PUT" method="POST">
+
+<div class = "comment-content-form">
+    <label>What do you think of <%=flight.%>?</label>
+    <textarea class = "comment-content" name="content"><%=comment.content%></textarea>
+    </div>
+    <br />
+    <label>Rating </label>
+    <select name="rating">
+      <option <% if(comment.rating === 1) {%> selected <%}%> value="1">1</option>
+      <option <% if(comment.rating === 2) {%> selected <%}%> value="2">2</option>
+      <option <% if(comment.rating === 3) {%> selected <%}%> value="3">3</option>
+      <option <% if(comment.rating === 4) {%> selected <%}%> value="4">4</option>
+      <option <% if(comment.rating === 5) {%> selected <%}%> value="5">5</option>
+    </select>
+    <br />
+    <label>Want to fly together?</label>
+    <input <% if(comment.flyTogether === true) {%> checked <%}%> type="checkbox" name="flyTogether" />
+    <br />
+    <input class = "button" type="submit" value="Update Your Comment" />
+  </form>
+</section>
+</div>
+  <%- include('../partials/footer') %>

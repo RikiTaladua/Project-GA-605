@@ -1,20 +1,239 @@
-.brand-logo {
-  margin-left: 15px;
+* {
+  box-sizing: border-box;
 }
 
-.card .card-content .card-title {
-  margin-bottom: 10px;
+nav {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 20px;
+  background-color: rgb(115 115 115);
+}
+body {
+  background-color: rgb(180, 212, 187);
 }
 
-#search-row form {
-  padding-top: 20px;
+textarea {
+  height: 150px;
+  width: 200px;
+}
+#login {
+  margin-left: auto;
+  margin-right: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+.login {
+  margin-right: 10px;
+}
+/* INDEX */
+#index {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#index > table {
+  margin-top: 20px;
+  margin-left: 30px;
+  margin-right: 30px;
+  border-collapse: separate;
+  border-spacing: 0 15px;
+}
+#index > table > thead {
+  background-color: rgb(115 115 115);
+}
+th {
+  padding: 5px;
+}
+td {
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding: 5px;
+}
+#index-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* FLIGHT STYLING */
+.show {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 2fr 3fr;
+}
+.flights {
+  grid-column: 1/2;
+  grid-row: 1/1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px;
+}
+.comments {
+  grid-column: 2/3;
+  grid-row: 1/1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px;
+}
+.comments > table > thead {
+  background-color: rgb(115 115 115);
+}
+.flightt-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#pilott {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+#pilott-remove {
+  margin-right: 5px;
+  margin-left: 5px;
+}
+.flight-description-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+/* NEW */
+.new-flight {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+/* PILOT-SHOW */
+#pilot-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#host-description {
+  height: 40vmin;
+  width: 80vmin;
+}
+#delete-host {
+  margin-top: 10px;
+}
+.host-description-form {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 5px;
+}
+/* IMAGES */
+#checkmark {
+  height: 10px;
+  width: 10px;
+}
+#xmark {
+  height: 10px;
+  width: 10px;
+}
+#logo {
+  height: 80px;
+  width: 80px;
+  border-radius: 25%;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+#login-graphic {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  justify-self: flex-end;
+  margin-right: 10px;
+}
+#logo-small {
+  height: 25px;
+  width: 25px;
+  margin-right: 7px;
+  margin-left: 7px;
+}
+/* COMMENTS */
+.review-content {
+  height: 100px;
+  width: 200px;
+}
+.review-content-form {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 5px;
+}
+/* LINKS */
+
+#login > a:link,
+a:visited {
+  color: white;
+}
+nav > a:link,
+a:visited {
+  color: white;
+}
+.grey-link {
+  margin-top: 10x;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.grey-link:visited,
+.grey-link:link {
+  color: rgb(115 115 115);
+}
+.grey-link:hover {
+  color: rgb(87, 144, 87);
+}
+a:hover {
+  color: rgb(127, 182, 127);
+}
+/* BUTTONS */
+.delete-button {
+  margin-top: 8px;
+  margin-bottom: 8px;
+  margin-left: 8px;
+  border-radius: 15%;
+}
+button,
+.button {
+  background-color: rgb(137, 137, 137);
 }
 
-.student-name {
-  position: relative;
-  top: -5px;
+.textarea {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  resize: both;
+  min-height: 40px;
+  min-width: 100px;
+  line-height: 20px;
+  border-color: grey;
+  border-style: solid;
+  border-width: 1px;
+  background-color: white;
 }
 
-.collection-item form {
-  margin-top: -5px;
+@media only screen and (max-width: 770px) {
+  .show {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }
