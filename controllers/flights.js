@@ -78,7 +78,7 @@ async function edit(req, res) {
 }
 
 async function update(req, res) {
-  req.body.newEpisodes = !!req.body.newEpisodes;
+  req.body.new = !!req.body.new;
   try {
     const flight = await Flight.findById(req.params.id);
     flight.pilot = req.body.pilot;

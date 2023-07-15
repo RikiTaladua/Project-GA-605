@@ -1,39 +1,49 @@
 <%- include('../partials/header') %>
 <div id="index">
   <h1 id="flights">Flights</h1>
-  <%if(user){%>
-  <div id="index-links">
-    <a class="grey-link" href="/flights/new">Add Flight</a>
-    <a class="grey-link" href="/pilots/new">Add Pilot</a>
-  </div>
-  <% }%>
+  <% if(user) { %>
+    <div id="index-links">
+      <a class="grey-link" href="/flights/new">Add Flight</a>
+      <a class="grey-link" href="/pilots/new">Add Pilot</a>
+    </div>
+  <% } %>
   <table>
     <thead>
       <th>Pilot</th>
       <th>Plane</th>
+      <th>Rating</th>
       <th>From</th>
       <th>To</th>
       <th>Followers</th>
       <th>Date Of Flight</th>
     </thead>
     <tbody>
-      <% flights.forEach(function(p){%>
-      <tr>
-        <td>
-          <a class="grey-link" href="/flights/<%=p._id%>"><%=p.pilot%></a>
-        </td>
-        <td><%=p.plane%></td>
-        <% let sum = 0; %> <%p.comments.forEach(function(r) {%> <% return sum =
-        (sum + r.rating)%> <% }) %> <% if (Math.floor(sum/p.comments.length) > 1)
-        { %>
-        <td><%=Math.floor(sum/p.comments.length)%></td>
-        <% } else { %>
-        <td>No comments Yet!</td>
-        <%}%>
-        <td><%=p.to%></td>
-        <td><%=p.usersFollowing.length%></td>
-        <td><%=p.dateOfFlight%></td>
-      </tr>
+      <% flights.forEach(function(flight) { %>
+        <tr>
+          <td>
+            <a class="grey-link" href="/flights/<%= flight._id %>"><%= flight.pilot %></a>
+          </td>
+          <td><%= flight.plane %></td>
+          <td>
+            <% 
+              let sum = 0;
+              flight.comments.forEach(function(comment) { sum += comment.rating; }); 
+              if (flight.comments.length > 0) { 
+            %>
+                <%= Math.floor(sum/flight.comments.length) %>
+            <% 
+              } else { 
+            %>
+                No comments Yet!
+            <% 
+              } 
+            %>
+          </td>
+          <td><%= flight.from %></td>
+          <td><%= flight.to %></td>
+          <td><%= flight.usersFollowing.length %></td>
+          <td><%= flight.dateOfFlight %></td>
+        </tr>
       <% }) %>
     </tbody>
   </table>
