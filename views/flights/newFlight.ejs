@@ -26,24 +26,24 @@
     <br />
     <div class = "flight-from">
         <label>From:</label>
-        <input value = "<%=flight.from%>" type="text" name="from" />
-        </div>
-        <br />
-      <div class = "flight-to">
+        <input type="text" name="from" />
+    </div>
+    <br />
+    <div class = "flight-to">
         <label>To:</label>
-        <input value = "<%=flight.to%>"name="to" type="text" />
-        </div>
-        <br />
-      <div class = "dof">
-        <label>From:</label>
-        <input value = "<%=flight.dof%>" type="text" name="dof" />
-        </div>
-        <br />
-      <div class="flight-logged">
+        <input name="to" type="text" />
+    </div>
+    <br />
+    <div class = "dof">
+        <label>Date of Flight:</label>
+        <input type="date" name="dof" />
+    </div>
+    <br />
+    <div class="flight-logged">
         <label>Is this flight logged?</label>
-        <input <% if(flight.logged === true) {%> checked <%}%>name="logged" type="checkbox" />
-      </div>
-        <br />
+        <input name="logged" type="checkbox" />
+    </div>
+    <br />
     <input class="button" type="submit" value="Add Flight" />
   </form>
 </div>

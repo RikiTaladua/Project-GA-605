@@ -9,6 +9,7 @@ module.exports = {
   index,
   new: newFlight,
   create,
+
   show,
   edit,
   update,
@@ -26,7 +27,7 @@ async function index(req, res) {
 }
 
 function newFlight(req, res) {
-  res.render("flights/new");
+  res.render("flights/newFlight");
 }
 
 async function create(req, res) {
