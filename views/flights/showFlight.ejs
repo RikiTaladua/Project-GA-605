@@ -2,7 +2,7 @@
 <div class="show">
   <section class="flights">
     <h1><%=flight.pilot%></h1>
-    <div id="listeners-airing">
+    <div id="followers">
       <%if(user) {%> <% if (flight.usersFollowing.includes(user._id)) { %>
       <p>You are following <%=flight.pilot%>.</p>
       <% } else { %>
@@ -112,7 +112,7 @@
     <%}%>
     <table id="comments-table">
       <thead>
-        <th>User</th>
+        <th>Pilot</th>
         <th>Comment</th>
         <th>Rating</th>
         <th>Want to fly together?</th>

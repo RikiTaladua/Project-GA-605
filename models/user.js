@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 //Flight = many usersFollowing 
-//User follows many podcasts
+
 
 const userSchema = new Schema(
   {

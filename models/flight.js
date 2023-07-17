@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 
 
 //Flight = manycomments // Comment belongs = flight.
-//comment Schema in flighttSchema
+//comment Schema in flightSchema
 const commentSchema = new Schema(
   {
     content: { type: String, required: true },
@@ -26,14 +26,14 @@ const commentSchema = new Schema(
 //Flight = many hosts // pilot = manyflights
 const flightSchema = new Schema(
   {
-    title: { type: String, required: true },
-    pilots: [{ type: mongoose.Schema.Types.ObjectId, ref: "Pilot" }],
-    description: { type: String, required: true },
+
+    pilots: String,
+    description: { type: String},
     plane: String,
     from: String,
     to: String,
     logged: Boolean,
-    dateOfFlight: String,
+    dateOfFlight: Date,
     comments: [commentSchema],
 
 

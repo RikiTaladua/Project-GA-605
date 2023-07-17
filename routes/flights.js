@@ -2,16 +2,16 @@ const express = require("express");
 const router = express.Router();
 const flightsCtrl = require("../controllers/flights");
 
-//routing to home page
+//routing to home/flights page
 //every route has prepended file path "/flights"
 router.get("/", flightsCtrl.index);
 
 
-//Get form to make a new flight 
+//form to make a new flight entry
 router.get("/new", flightsCtrl.new);
 
 
-//To a form to upate the flight details
+//form to upate the flight details
 router.get("/:id/edit", flightsCtrl.edit);
 
 

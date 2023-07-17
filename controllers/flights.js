@@ -40,7 +40,9 @@ async function create(req, res) {
 
     //now creating new flight entry in db
     //then redirect to flight index to see new entry in the list
+    console.log(req.body)
     const flight = await Flight.create(req.body);
+    console.log(flight)
     res.redirect("/flights");
   } catch (err) {
     console.log(err);
@@ -60,7 +62,7 @@ async function show(req, res) {
     
     
     //Render the show page:
-    res.render("flights/show", { flight, comment, pilots });
+    res.render("flights/showFlight", { flight, comment, pilots });
   } catch (err) {
     console.log(err);
   }

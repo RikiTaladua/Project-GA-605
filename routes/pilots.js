@@ -10,7 +10,7 @@ router.get("/pilots/new", pilotsCtrl.new);
 router.post("/pilots", pilotsCtrl.create);
 
 
-//Adds pilot to flight // Adds a flightt to pilot
+//Adds pilot to flight // Adds a flight to pilot
 router.post("/flights/:id/pilots", pilotsCtrl.addPilot);
 
 

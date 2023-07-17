@@ -7,7 +7,7 @@ const Schema = mongoose.Schema;
 //Link pilots --> flights // link flights --> pilots
 const pilotSchema = new Schema(
   {
-    name: { type: String, required: true },
+    name: { type: String},
     description: String,
     Email: String,
   },
