@@ -1,35 +1,36 @@
-# passport-boilerplate
+Flight Tracer 
+
+A database website for pilots all around the world to track their progress in schooling or just a more efficeint way to keep track of your logs as a pilot.
+
+Home Page/ Flights Page
+
+![Screen Shot 2023-07-16 at 9 46 37 PM](https://github.com/RikiTaladua/Project-GA-605/assets/125234800/d8b91689-fe1b-47c1-9399-082855814918)
+
+Add new flight
+
+![Screen Shot 2023-07-16 at 9 46 49 PM](https://github.com/RikiTaladua/Project-GA-605/assets/125234800/b1f27cc3-f899-43fb-bb51-0a8be08bf6d0)
+
+Add new pilot
+
+![Screen Shot 2023-07-16 at 9 47 01 PM](https://github.com/RikiTaladua/Project-GA-605/assets/125234800/4670c650-2744-4f45-8dfe-5de425dc2cea)
+
+ERD
+
+![Screen Shot 2023-07-10 at 9 49 06 AM](https://github.com/RikiTaladua/Project-GA-605/assets/125234800/dbd5b23d-f11f-4af9-b38e-1d290868dd9c)
 
 
-This is your passport boilerplate.
+Deployed Site
 
-## Setup 
+https://silly-peplum-jay.cyclic.app
 
-1. Clone the repo
-2. Rename the folder to your Project
-3. Delete the `.git` file, when you are in the root of the file, you can press `ls` and you should see a `.git` file, then go ahead and run `rm -rf .git`
+Login to be able to add and update flights
 
 
-#### Setup your git repo
-0. Setup your `.env` file and add all the things you need! (look at mongoose movies for reference!)
-1. in the project root `git init`
-2. `git add .` to add all the starter code
-3. `git commit -m "setup boilerplate"` 
-4. go to github and create your github and create a repo (Without a readme or liscense you can add that later!)
-5. copy the remote address
-6. In your terminal add the remote `git remote add origin yourGithubRepo'sAddressGoesHere`
-7. `git pull origin main` If a screen pulls up asking you to do something just press `:q` and then `enter` (thats vim btw :) )
-8. `git push origin main`
+Technologies Used
 
-#### Setup your login (THE APP WON'T WORK until you do, no VIEWS are setup, or the landing route)
-
-0. Setup your database connection string
-1. Then Setup Your User Model, 
-2. Follow the steps from the lesson plan to get your Google login credentials for your `.env` file (create the file if you haven't), or you can just copy the ones from earlier if you want to reuse them.
-3. Setup the Code in your config passport 
-4. Setup your callback routes in your `routes/index`
-5. Setup a view and test your login!
-
-#### Make a commit 
-
-```git commit -m "setup up oauth and User Model"```
+•Express.js
+•Node.js
+•Mongodb
+•JavaScript
+•EJS
+•HTML/CSS
