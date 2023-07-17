@@ -1,18 +1,3 @@
-// 
-// const express = require("express");
-// const router = express.Router();
-// const pilotsCtrl = require("../controllers/pilot");
-
-// // Pilots routes are all prepended with "/pilots"
-// router.get("/new", pilotsCtrl.newPilot);
-// router.post("/", pilotsCtrl.create);
-// router.post("/flights/:id/pilots", pilotsCtrl.addPilot);
-// router.get("/:id", pilotsCtrl.show);
-// router.delete("/:id", pilotsCtrl.deletePilot);
-// router.get("/:id/edit", pilotsCtrl.edit);
-// router.put("/:id", pilotsCtrl.update);
-// router.delete("/flights/:podid/pilots/:hid", pilotsCtrl.removePilot);
-
 // module.exports = router;
 const express = require("express");
 const router = express.Router();
