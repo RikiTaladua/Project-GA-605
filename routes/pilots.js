@@ -1,36 +1,33 @@
+// 
+// const express = require("express");
+// const router = express.Router();
+// const pilotsCtrl = require("../controllers/pilot");
+
+// // Pilots routes are all prepended with "/pilots"
+// router.get("/new", pilotsCtrl.newPilot);
+// router.post("/", pilotsCtrl.create);
+// router.post("/flights/:id/pilots", pilotsCtrl.addPilot);
+// router.get("/:id", pilotsCtrl.show);
+// router.delete("/:id", pilotsCtrl.deletePilot);
+// router.get("/:id/edit", pilotsCtrl.edit);
+// router.put("/:id", pilotsCtrl.update);
+// router.delete("/flights/:podid/pilots/:hid", pilotsCtrl.removePilot);
+
+// module.exports = router;
 const express = require("express");
 const router = express.Router();
-const pilotsCtrl =  require("../controllers/pilot");
+const flightsCtrl = require("../controllers/flights"); // Corrected import path for flightsCtrl
 
-//Pilots routes are all prepended with "/pilots"
-router.get("/pilots/new", pilotsCtrl.new);
-
-
-//Adds new pilot to db
-router.post("/pilots", pilotsCtrl.create);
-
-
-//Adds pilot to flight // Adds a flight to pilot
-router.post("/flights/:id/pilots", pilotsCtrl.addPilot);
-
-
-//Pilot details
-router.get("/pilots/:id", pilotsCtrl.show);
-
-
-//Delete pilot
-router.delete("/pilots/:id", pilotsCtrl.delete);
-
-
-//Edit page for pilot
-router.get("/pilots/:id/edit", pilotsCtrl.edit);
-
-
-//Update the pilot info
-router.put("/pilots/:id", pilotsCtrl.update);
-
-
-//Delete connection between pilot and flight
-router.delete("/flights/:podid/pilots/:hid", pilotsCtrl.removePilot);
+// Routing to home/flights page
+// Every route has prepended file path "/flights"
+router.get("/", flightsCtrl.index);
+router.get("/new", flightsCtrl.newFlight);
+router.get("/:id/edit", flightsCtrl.edit);
+router.put("/:id/follow", flightsCtrl.follow);
+router.post("/", flightsCtrl.create);
+router.get("/:id", flightsCtrl.show);
+router.put("/:id", flightsCtrl.update);
+router.delete("/:id", flightsCtrl.deleteFlight);
 
 module.exports = router;
+
