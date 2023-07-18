@@ -19,7 +19,7 @@ function newPilot(req, res) {
 async function create(req, res) {
   try {
     const newPilot = await Pilot.create(req.body);
-    res.redirect("/flights");
+    res.redirect("/pilot");
   } catch (err) {
     console.log(err);
   }
@@ -40,7 +40,7 @@ async function show(req, res) {
   try {
     const pilotsFlights = await Flight.find({ pilots: req.params.id });
     const pilot = await Pilot.findById(req.params.id);
-    res.render("pilots/show", { pilot, pilotsFlights });
+    res.render("pilot/show", { pilot, pilotsFlights });
   } catch (err) {
     console.log(err);
   }

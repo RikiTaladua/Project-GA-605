@@ -21,16 +21,19 @@
       <% flights.forEach(function(flight) { %>
         <tr>
           <td>
-            <a class="grey-link" href="/flights/<%= flights._id %>"><%= flights.pilot %></a>
+            <a class="grey-link" href="/flights/<%= flight._id %>"><%= flight.pilot %></a>
           </td>
           <td><%= flight.plane %></td>
           <td>
             <% 
               let sum = 0;
-              flight.comments.forEach(function(comment) { sum += comment.rating; }); 
-              if (flight.comments.length > 0) { 
+              if (flight.comments && flight.comments.length > 0) {
+                flight.comments.forEach(function(comment) {
+                  sum += comment.rating;
+                });
+                let average = Math.floor(sum/flight.comments.length);
             %>
-                <%= Math.floor(sum/flight.comments.length) %>
+                <%= average %>
             <% 
               } else { 
             %>
@@ -42,12 +45,10 @@
           <td><%= flight.from %></td>
           <td><%= flight.to %></td>
           <td><%= flight.usersFollowing.length %></td>
-          <td><%= flight.dateOfFlight %></td>
+          <td><%= flight.dateOfFlight ? flight.dateOfFlight.toString() : "Date not available" %></td>
         </tr>
       <% }) %>
     </tbody>
   </table>
 </div>
 <%- include('../partials/footer') %>
-
-<

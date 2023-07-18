@@ -12,7 +12,7 @@ const pilotSchema = new Schema(
     Email: String,
   },
   {
-    timestamps: true,
+    timestamps: String,
   }
 );
 module.exports = mongoose.model("Pilot", pilotSchema);

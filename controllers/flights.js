@@ -1,6 +1,7 @@
 const Flight = require("../models/flight");
 const Pilot = require("../models/pilot");
 
+
 module.exports = {
   index,
   newFlight,
@@ -25,15 +26,7 @@ function newFlight(req, res) {
   res.render("flights/newFlight");
 }
 
-async function create(req, res) {
-  req.body.logged = !!req.body.logged;
-  try {
-    const flight = await Flight.create(req.body);
-    res.redirect("/flights");
-  } catch (err) {
-    console.log(err);
-  }
-}
+
 
 async function show(req, res) {
   try {
@@ -48,6 +41,16 @@ async function show(req, res) {
   }
 }
 
+async function show(req, res) {
+  try {
+    const flight = await Flight.findById(req.params.id)
+      .populate("pilots")
+      .exec();
+  } catch (err) {
+    console.log(err);
+  }
+}
+
 async function edit(req, res) {
   try {
     const flight = await Flight.findById(req.params.id);
@@ -57,17 +60,39 @@ async function edit(req, res) {
   }
 }
 
+
+async function create(req, res) {
+  req.body.logged = !!req.body.logged;
+
+  console.log("Date Received:", req.body.dateOfFlight); 
+  try {
+    req.body.dateOfFlight = new Date(req.body.dateOfFlight);
+    const flight = await Flight.create(req.body);
+    res.redirect("/flights");
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+
+
 async function update(req, res) {
+  console.log(req.body); 
   req.body.logged = !!req.body.logged;
   try {
     const flight = await Flight.findById(req.params.id);
+    flight.pilot = req.body.pilot;
     flight.pilots = req.body.pilots;
     flight.description = req.body.description;
     flight.plane = req.body.plane;
     flight.from = req.body.from;
     flight.to = req.body.to;
-    flight.dateOfFlight = req.body.dateOfFlight;
+
+    console.log("Date Received:", req.body.dateOfFlight); 
+    flight.dateOfFlight = new Date(req.body.dateOfFlight); 
     flight.logged = req.body.logged;
+    flight.comments = req.body.comments;
+    flight.usersFollowing = req.body.usersFollowing;
     await flight.save();
     res.redirect(`/flights/${flight._id}`);
   } catch (err) {
